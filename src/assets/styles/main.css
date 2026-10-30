@@ -1,0 +1,106 @@
+:root {
+  --bg: #f6efe4;
+  --surface: #fffdf9;
+  --surface-2: #f1e7d6;
+  --borde: #e6d8c0;
+  --texto: #2b1a12;
+  --texto-suave: #7d6a5c;
+  --acento: #c8873a;
+  --acento-2: #8a5a3b;
+  --exito: #3f7d4e;
+  --error: #b3392f;
+  --aviso: #c27c1a;
+  --sidebar-1: #3a2218;
+  --sidebar-2: #1f120c;
+  --sombra: 0 4px 18px rgba(74, 44, 29, 0.1);
+  --radio: 14px;
+  --sidebar-ancho: 260px;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #17110d;
+  --surface: #221912;
+  --surface-2: #2c2018;
+  --borde: #3a2b20;
+  --texto: #f3e9da;
+  --texto-suave: #b9a592;
+  --acento: #e0a050;
+  --acento-2: #c8873a;
+  --exito: #6fbf85;
+  --error: #ef7b70;
+  --aviso: #e4a64a;
+  --sidebar-1: #1c120d;
+  --sidebar-2: #100906;
+  --sombra: 0 4px 18px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  :root {
+    --sidebar-ancho: 76px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --sidebar-ancho: 0px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Clase reutilizable para las pantallas */
+.tarjeta {
+  background: var(--surface);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.25rem;
+}
+
+/* ===== Componentes globales reutilizables ===== */
+.cabecera-pagina { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.cabecera-pagina h2 { margin: 0; font-size: 1.4rem; }
+.cabecera-pagina p { margin: 0.2rem 0 0; color: var(--texto-suave); font-size: 0.9rem; }
+.acciones { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.acciones-modal { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.25rem; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.6rem 1.05rem; border-radius: 10px; border: 1px solid var(--borde); background: var(--surface); color: var(--texto); font: inherit; font-weight: 600; cursor: pointer; transition: transform 0.15s, opacity 0.15s; }
+.btn:hover:not(:disabled) { transform: translateY(-1px); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-primario { background: linear-gradient(135deg, var(--grad-1, var(--acento)), var(--grad-2, var(--acento))); color: #fff; border-color: transparent; box-shadow: 0 4px 14px var(--acento-sombra, rgba(0, 0, 0, 0.25)); }
+.btn-peligro { background: var(--error); color: #fff; border-color: transparent; }
+.btn-icono { padding: 0.5rem; border-radius: 9px; }
+
+.campo { display: flex; flex-direction: column; gap: 0.3rem; }
+.campo label { font-size: 0.85rem; font-weight: 600; color: var(--texto-suave); }
+.campo input, .campo select { padding: 0.6rem 0.75rem; border-radius: 10px; border: 1px solid var(--borde); background: var(--surface); color: var(--texto); font: inherit; }
+.campo input:focus, .campo select:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+.campo input.invalido { border-color: var(--error); }
+.error-texto { color: var(--error); font-size: 0.8rem; }
+
+.tabla-wrap { overflow-x: auto; }
+.tabla { width: 100%; border-collapse: collapse; min-width: 480px; }
+.tabla th { text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--texto-suave); padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--borde); }
+.tabla td { padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
+.tabla tbody tr:last-child td { border-bottom: none; }
+.tabla tbody tr:hover { background: var(--surface-2); }
+
+.estado-centro { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 2.5rem 1rem; text-align: center; color: var(--texto-suave); }
+.estado-centro p { margin: 0; }
+.texto-error { color: var(--error); }
+.spinner { width: 34px; height: 34px; border-radius: 50%; border: 4px solid var(--borde); border-top-color: var(--acento); animation: giro 0.8s linear infinite; }
+@keyframes giro { to { transform: rotate(360deg); } }
