@@ -10,25 +10,6 @@ npm install
 npm run dev
 ```
 
-La URL de la API se configura en `.env`:
-
-```text
-VITE_API_URL=https://cafelencaapi.onrender.com
-```
-
-## Publicar en Vercel
-
-Configura el proyecto con estos valores:
-
-- **Root Directory:** `Frontend/Cafe-Lenca` (si el repositorio contiene también el backend).
-- **Build Command:** `npm run build`.
-- **Output Directory:** `dist`.
-- **Install Command:** `npm install`.
-- **Variable de entorno:** `VITE_API_URL=https://cafelencaapi.onrender.com`.
-
-El archivo `vercel.json` permite que las rutas de Vue funcionen al actualizar el
-navegador o entrar directamente a una URL como `/motor-logico`. El favicon y el
-icono de la aplicación usan el logo de Café Lenca.
 
 ## Motor logico e IA
 
