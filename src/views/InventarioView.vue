@@ -36,7 +36,12 @@ async function guardar() {
 }
 async function analizarInventario() {
   consultandoIA.value = true
-  try { analisisIA.value = await priorizarInventarioConIA(items.value.filter((item) => item.stock_bajo)); toast.exito('Alertas priorizadas por IA') } catch (e) { toast.error(e.userMessage) } finally { consultandoIA.value = false }
+  try {
+    analisisIA.value = await priorizarInventarioConIA({
+      alertas: items.value.filter((item) => item.stock_bajo),
+    })
+    toast.exito('Alertas priorizadas por IA')
+  } catch (e) { toast.error(e.userMessage) } finally { consultandoIA.value = false }
 }
 onMounted(cargar)
 </script>

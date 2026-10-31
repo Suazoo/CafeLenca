@@ -10,7 +10,6 @@ npm install
 npm run dev
 ```
 
-
 ## Motor logico e IA
 
 La pantalla **Motor logico** permite escribir lo que solicita el cliente, por ejemplo:
